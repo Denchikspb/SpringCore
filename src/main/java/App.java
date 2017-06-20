@@ -18,16 +18,18 @@ public class App {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
-
         App app = (App) context.getBean("app");
 
-        app.logEvent("Some event for 1");
-        app.logEvent("Some event for 2");
+        Event event = context.getBean(Event.class);
+        app.logEvent(event, "Some event for 1");
+
+        event = context.getBean(Event.class);
+        app.logEvent(event, "Some event for 2");
     }
 
-    private void logEvent(String msg){
+    private void logEvent(Event event, String msg) {
         String message = msg.replaceAll(client.getId(), client.getName());
-
-        eventLogger.logEvent(message);
+        event.setMsg(message);
+        eventLogger.logEvent(event);
     }
 }
