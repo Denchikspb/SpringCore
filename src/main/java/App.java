@@ -1,4 +1,8 @@
+import api.ConsoleEventLogger;
+import model.Client;
+import model.Event;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -17,7 +21,8 @@ public class App {
     }
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+        context.close();
         App app = (App) context.getBean("app");
 
         Event event = context.getBean(Event.class);
