@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.util.Date;
 
 /**
- * Created by cherepanov on 20.06.2017.
+ * Created by Denis on 20.06.2017.
  */
 public class Event {
     private int id;

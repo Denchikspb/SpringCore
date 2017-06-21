@@ -4,7 +4,7 @@ import model.Event;
 import model.EventLogger;
 
 /**
- * Created by cherepanov on 20.06.2017.
+ * Created by Denis on 20.06.2017.
  */
 public class ConsoleEventLogger implements EventLogger {
     public void logEvent(Event event){
